@@ -9,7 +9,7 @@ repositories {
 
 install {
     repositories.mavenInstaller {
-        pom.version = '0.1'
+        pom.version = '0.2'
         pom.artifactId = 'xml-builder'
         pom.groupId = 'ru.mw'
         pom.whenConfigured { generatedPom ->
