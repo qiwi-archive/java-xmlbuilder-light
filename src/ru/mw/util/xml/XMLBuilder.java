@@ -178,7 +178,7 @@ public class XMLBuilder {
         return closeTag(lastTag);
     }
 	
-	public XMLBuilder close() {
+    public XMLBuilder close() {
         while(tags.size() > 0){
             up();
         }
