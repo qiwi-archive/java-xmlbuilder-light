@@ -122,7 +122,7 @@ public class XMLBuilder {
         return tag(name, dateFormat.format(value));
     }
 
-    public XMLBuilder closeTag(String name) {
+    private XMLBuilder closeTag(String name) {
         if (!hasContent) {
             closeOpenTagCompact();
         } else {
@@ -176,6 +176,13 @@ public class XMLBuilder {
     public XMLBuilder up() {
         String lastTag = tags.pop();
         return closeTag(lastTag);
+    }
+	
+    public XMLBuilder close() {
+        while(tags.size() > 0){
+            up();
+        }
+        return this;
     }
 
     @Override
