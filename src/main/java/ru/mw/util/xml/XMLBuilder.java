@@ -25,6 +25,8 @@ public class XMLBuilder {
 
     public boolean hasContent = false;
 
+    private boolean mUseTabIdent = true;
+
     private StringBuilder r = new StringBuilder();
 
     public XMLBuilder() {
@@ -43,6 +45,15 @@ public class XMLBuilder {
             this.encoding = DEFAULT_ENCODING;
             putProlog();
         }
+    }
+
+    public XMLBuilder(boolean useProlog, boolean useTabIdent) {
+        if (useProlog) {
+            this.version = DEFAULT_VERSION;
+            this.encoding = DEFAULT_ENCODING;
+            putProlog();
+        }
+        mUseTabIdent = useTabIdent;
     }
 
     /**
@@ -72,7 +83,7 @@ public class XMLBuilder {
 
     private void closeOpenTagCompact() {
         if (inOpenTag && !hasContent) {
-            r.append(" />");
+            r.append("/>");
             inOpenTag = false;
         }
     }
@@ -191,12 +202,16 @@ public class XMLBuilder {
     }
 
     private void nextLine() {
-        r.append("\n");
+        if (mUseTabIdent) {
+            r.append("\n");
+        }
     }
 
     private void fillPadding() {
-        for (int i = 0; i < tags.size(); i++) {
-            r.append("\t");
+        if (mUseTabIdent) {
+            for (int i = 0; i < tags.size(); i++) {
+                r.append(" ");
+            }
         }
     }
 
