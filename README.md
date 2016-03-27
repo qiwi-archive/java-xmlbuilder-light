@@ -19,6 +19,17 @@ Don't forget to specify environment variables `BINTRAY_USER` and `BINTRAY_API_KE
 
 ### Add to your project
 
+**Gradle**   
+```
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'com.qiwi.utils:java-xmlbuilder-light:1.0'
+}
+```
+
 ### Example of usage
 ```java
 XMLBuilder xml = new XMLBuilder();
