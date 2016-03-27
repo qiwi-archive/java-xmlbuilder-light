@@ -40,7 +40,7 @@ xml.close();
 System.out.println(xml.toString());
 ```
 will generate XML like this:
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <request>
  <request-type>payment</request-type>
