@@ -30,7 +30,7 @@ dependencies {
 }
 ```
 
-### Example of usage
+### Example
 ```java
 XMLBuilder xml = new XMLBuilder();
 xml.tag("request");
