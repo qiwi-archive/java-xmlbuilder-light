@@ -12,18 +12,6 @@ apply plugin: 'com.jfrog.bintray'
 apply plugin: 'maven-publish'
 apply plugin: 'java'
 
-sourceSets {
-    main {
-        java {
-            srcDir "src"
-            exclude '**/test/**'
-        }
-    }
-    test {
-        java { srcDir "src/test" }
-    }
-}
-
 compileJava.doFirst {
     sourceCompatibility = 1.6
     targetCompatibility = 1.6
